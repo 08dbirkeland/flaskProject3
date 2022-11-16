@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+<img src="{{ url_for('static', filename='background.png') }}"/>
+
+<div id=container>
+    <div id="LoginBox">
+        <p id=LoginHeader>Login</p>
+        <form id="forms" action="" method="post">
+            <input class="inputs" type="text" placeholder="example@mail.com" name="username"
+                   value="{{ request.form.username }}">
+            <br>
+            <input class="inputs" type="password" placeholder="Password" name="password"
+                   value="{{ request.form.password }}">
+            <br>
+            <label id="linked"><a href="http://127.0.0.1:5000/register">Not registered?</a></label>
+            {% if error is not none %}
+            <h3>{{ error }}</h3>
+            {% endif %}
+            <div style="flex: 1"></div>
+            <input class="btn" type="submit" value="LOGIN">
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>
