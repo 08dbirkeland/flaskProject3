@@ -1,10 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='homecss.css') }}">
     <meta charset="UTF-8">
     <title>Home</title>
+    <script src="https://cdn.plot.ly/plotly-2.17.1.min.js"></script>
 </head>
 <body>
-amngusballs
+This is the home page
+<div id >
+    <button id = "1d" class= "intervals"></button>
+    <button id = "5d" class = "intervals"></button>
+    <div id="graph">
+    </div>
+</div>
+<script>const jonny = {{ data|tojson|safe }}
+    let
+x = Object.keys(jonny["Close"])
+let y = Object.values(jonny["Close"])
+let error_y = {
+    color: "#00FF00",
+    type: 'data',
+    symmetric: false,
+    array: Object.values(jonny["High"]).map((e, i) => e - y[i]),
+    arrayminus: Object.values(jonny["Low"]).map((e, i) => y[i] - e),
+    visible: true
+}
+let data = [
+    {
+        x,
+        y,
+        error_y,
+        type: 'scatter',
+        line: {
+            color: 'rgb(128, 0, 128)',
+            width: 1
+        }
+    }
+]
+var layout = {
+}
+Plotly.newPlot("graph", data,layout)
+</script>
+
 </body>
 </html>
