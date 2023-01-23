@@ -7,10 +7,11 @@
     <script src="https://cdn.plot.ly/plotly-2.17.1.min.js"></script>
 </head>
 <body>
-This is the home page
-<div id >
-    <button id = "1d" class= "intervals"></button>
-    <button id = "5d" class = "intervals"></button>
+<img src="{{ url_for('static', filename='homebackground.jpg') }}"/>
+<div id = "center">
+    <h1>CRYPTO</h1>
+    <button id = "1d" class= "intervals">1H</button>
+    <button id = "5d" class = "intervals">12H</button>
     <div id="graph">
     </div>
 </div>
